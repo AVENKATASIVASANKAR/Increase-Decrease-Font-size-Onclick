@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        #font{
+font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="changeFontSize(this)" id="btn1" type="button">FONT+</button>
+    <button onclick="changeFontSize(this)" id="btn2" type="button">Font-</button>
+    <h1 id="demo">Om namah shivaya</h1>
+    
+<script>
+
+function changeFontSize(target) {
+    var demo = document.getElementById("demo");
+    var computedStyle = window.getComputedStyle
+          ? getComputedStyle(demo) // Standards
+          : demo.currentStyle;     // Old IE
+    var fontSize;
+  
+    if (computedStyle) { // This will be true on nearly all browsers
+        fontSize = parseFloat(computedStyle && computedStyle.fontSize);
+  
+        if (target == document.getElementById("btn1")) {
+          fontSize += 5;
+        } else if (target == document.getElementById("btn2")) {
+          fontSize -= 5;
+        }
+        demo.style.fontSize = fontSize + "px";
+    }
+  }
+  </script>
+
+</body>
+</html>
